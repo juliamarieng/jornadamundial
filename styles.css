@@ -1,0 +1,63 @@
+  :root {
+    --taeguk-red: #CD2A3E;
+    --taeguk-red-deep: #A31E30;
+    --taeguk-blue: #003478;
+    --taeguk-blue-deep: #00224F;
+    --gold: #D4AF37;
+    --ink: #1A1A2E;
+    --paper: #FFFCF6;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--ink); }
+  .font-display { font-family: 'Fraunces', serif; }
+
+  /* Signature element: rotating taeguk (Korean yin-yang) emblem, echoing the flag itself */
+  .taeguk {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 25%, var(--paper) 0 12.5%, transparent 12.6%),
+      radial-gradient(circle at 50% 75%, var(--ink) 0 12.5%, transparent 12.6%),
+      linear-gradient(90deg, var(--taeguk-red) 0 50%, var(--taeguk-blue) 50% 100%);
+    -webkit-clip-path: circle(50%);
+    clip-path: circle(50%);
+  }
+  .taeguk-spin { animation: spin 40s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .taeguk-spin { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  .divider-taeguk { width: 2.25rem; height: 2.25rem; flex-shrink: 0; }
+
+  .btn-primary {
+    background: var(--taeguk-red);
+    transition: background-color .2s ease, transform .15s ease;
+  }
+  .btn-primary:hover { background: var(--taeguk-red-deep); transform: translateY(-1px); }
+  .btn-primary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  .btn-secondary {
+    background: var(--taeguk-blue);
+    transition: background-color .2s ease, transform .15s ease;
+  }
+  .btn-secondary:hover { background: var(--taeguk-blue-deep); transform: translateY(-1px); }
+  .btn-secondary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  .card-shadow { box-shadow: 0 10px 30px -12px rgba(26,26,46,.18); }
+
+  .gold-rule {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .pix-key-box {
+    border: 2px dashed var(--gold);
+    background: rgba(212,175,55,.06);
+  }
+
+  .patron-card { transition: transform .2s ease, box-shadow .2s ease; }
+  .patron-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px -14px rgba(26,26,46,.28); }
